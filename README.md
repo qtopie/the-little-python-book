@@ -2,6 +2,9 @@
 
 TODO: add more examples and explaination.
 
+## Installation
+https://www.python.org/downloads/
+
 ## Examples
 
 `flower.py` draw an flower
