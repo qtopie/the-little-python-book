@@ -6,22 +6,22 @@ df = pd.DataFrame([
     ["2024/7/16", None, None, 8371.7, None, None],
     ["2024/8/21", None, 2507.5, None, None, None],
     ["2024/10/24", None, None, 8006.9, None, None]
-], columns=["发钱月", "store1", "store2", "store3",
+], columns=["month", "store1", "store2", "store3",
             "store4", "store5"])
 
 # 数据重塑为长格式，便于绘图
-df_long = df.melt(id_vars="发钱月", var_name="store", value_name="amount")
+df_long = df.melt(id_vars="month", var_name="store", value_name="amount")
 
 # 创建动态图表，使用spline曲线，带有标记点
 fig = px.line(
     df_long,
     x="month",
     y="amount",
-    color="店铺",
+    color="store",
     line_shape="spline",
     markers=True,
     title="各品牌资金获取趋势分析",
-    labels={"amount": "USD Amount", "发钱月": "Transaction Month"},
+    labels={"amount": "USD Amount", "month": "Transaction Month"},
     hover_data={"amount": ":.2f"},
     text="amount"  # 在点上显示金额
 )
